@@ -1,44 +1,21 @@
 package gao.test;
-import com.opensymphony.xwork2.ActionSupport;  
 
-public class TestAction extends ActionSupport {  
-    private static final long serialVersionUID = -1417237614181805435L;  
-      
-    private String name;  
-    private String password;  
-      
-    public String getName() {  
-        return name;  
-    }  
-  
-    public void setName(String name) {  
-        this.name = name;  
-    }  
-  
-    public String getPassword() {  
-        return password;  
-    }  
-  
-    public void setPassword(String password) {  
-        this.password = password;  
-    }  
-  
-    /** 
-     * 跳转到登录界面 
-     * @return 
-     */  
-    public String login_input() {  
-        return SUCCESS;  
-    }  
-      
-    /** 
-     * 登录 
-     * @return 
-     */  
-    public String login() {  
-        System.out.println("name->" + name);  
-        System.out.println("password->" + password);  
-          
-        return SUCCESS;  
-    }  
-}  
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+
+@SuppressWarnings("serial")
+@Controller
+@Scope("prototype")
+public class TestAction extends ActionSupport{
+	
+
+	@Override
+	public String execute() throws Exception {
+		System.out.println("--->TestAction.execute()");
+		return "success";
+	}
+}
